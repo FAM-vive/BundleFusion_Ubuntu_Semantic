@@ -1,14 +1,4 @@
-# BundleFusion_Ubuntu_Pangolin
-This is an ubuntu porting project for [https://github.com/niessner/BundleFusion](https://github.com/niessner/BundleFusion), a GPU-based 3D reconstruction method. 
-<br>
-<b>Youtube Demo:</b>[https://www.youtube.com/watch?v=QOHhFObUprA](https://www.youtube.com/watch?v=QOHhFObUprA)
-<p align="center">
-<a href="https://www.youtube.com/watch?v=QOHhFObUprA
-" target="_blank"><img src="asset/demo_office2.png"
-alt="demo for BundleFusion_Ubuntu" width="720" height="540" /></a>
-</p>
-
-
+# BundleFusion_Ubuntu_Semantic
 
 ```
 @article{dai2017bundlefusion,
@@ -56,39 +46,14 @@ A pangolin window will show up and get real time reconstruction  result.
 
 * Save Mesh:
 
-we provide save mesh button at pangoln GUI, you need to specify the save path at zParametersDefault.txt for item "s_generateMeshDir".
-
+we provide save mesh button at pangoln GUI, you need to specify the save path at zParametersDefault.txt for item "s_generateMeshDir"
 
 
 ## Result
 
-We provide a reconstruction result of dataset [office2](http://graphics.stanford.edu/projects/bundlefusion/data/office2/office2.zip) with Google Drive: [https://drive.google.com/file/d/121rR0_6H_xTpsSsYAHIHV_sZqJjHdN5R/view?usp=sharing](https://drive.google.com/file/d/121rR0_6H_xTpsSsYAHIHV_sZqJjHdN5R/view?usp=sharing)
+We provide a reconstruction result of ScanNet dataset.
+<center class="half">
+    <img src="./asset/bf-geometry.png" width="400" align=left>
+    <img src="./asset/bf-semantic.png" width="400" align=left/>
+</center>
 
-
-
-## Issues
-
-* Pangolin OpenGL error:
-
-<b>Problem:</b>
-
-```
-/usr/local/include/pangolin/gl/glsl.h:709:70: error: ‘glUniformMatrix3dv’ was not declared in this scope
-     glUniformMatrix3dv( GetUniformHandle(name), 1, GL_FALSE, m.data());
-                                                                      ^
-/usr/local/include/pangolin/gl/glsl.h: In member function ‘void pangolin::GlSlProgram::SetUniform(const string&, const Matrix4d&)’:
-/usr/local/include/pangolin/gl/glsl.h:713:70: error: ‘glUniformMatrix4dv’ was not declared in this scope
-     glUniformMatrix4dv( GetUniformHandle(name), 1, GL_FALSE, m.data());
-```
-
-<b>Solution:</b>
-
-```
-sudo vim /usr/local/include/pangolin/gl/glplatform.h
-#goto line#58
-#replace "GL/glew.h" with "/usr/include/GL/glew.h"
-```
-
-## Contact
-
-contact with fangasfrank #at gmail.com for porting issues.
